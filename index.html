@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html data-ng-app="app" data-ng-controller="mainController">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Smartpack, always with you.</title>
+    <link rel="stylesheet" type="text/css" href="style/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="style/main.css">
+    <link rel="stylesheet" type="text/css" href="style/modalDialog.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.12.0/ui-bootstrap.js"></script>
+</head>
+
+<body>
+    <header>
+        <!-- Beginning of NAV! -->
+        <nav class="navbar navbar-default navbar-fixed-top" data-role="navigation" data-ng-controller="navigationController">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarCollapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand img-responsive" href="#"><img style="height: 35px" alt="logo" src="img/logo.jpg" />
+                    </a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Home</a>
+                        </li>
+                        <li><a href="#">How it works</a>
+                        </li>
+                        <li><a href="#">Pricing</a>
+                        </li>
+                        <li><a href="#">About Us</a>
+                        </li>
+                        <li><a href="#">Contact</a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#" data-ng-click="toggleModal()">Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div data-modal-dialog class="panel panel-default box-shadow" data-show='modalShown' data-width='80%' data-height='80%'>
+            <div class="panel-heading">
+                <h3 class="panel-title">
+              Login
+            </h3>
+            </div>
+
+            <div class="panel-body">
+                <p>We can put here what we want</p>
+                <form name="form" data-autocomplete="off" data-novalidate data-shake-that data-submitted="submitted" data-submit="submit()">
+                    <div class="form-group" data-ng-class="{'has-error': form.email.$invalid && submitted}">
+                        <label for="email" class="control-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Email" data-ng-model="email" data-ng-model-options="{updateOn: 'blur'}" required>
+                    </div>
+                    <div class="form-group" data-ng-class="{'has-error': form.password.$invalid && submitted}">
+                        <label for="password" class="control-label">Password</label>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Password" data-ng-model="password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Login</button>
+                </form>
+            </div>
+        </div>
+    </header>
+    <section class="container">
+        <div data-width="100%" data-ng-controller="TestFormCtrl">
+            <h3 class="title">
+              Describe your travel
+            </h3>
+
+            <form name="form" class="form-horizontal" data-autocomplete="off" data-novalidate data-shake-that data-submitted="submitted" data-submit="submit()">
+                <div class="">
+                    <div class="form-group" data-ng-class="{}">
+                        <input type="text" class="form-control input-lg" id="destination" name="destination" placeholder="Destination" data-ng-model="destination" data-ng-model-options="{updateOn: 'blur'}" required>
+                    </div>
+                    <div class="form-group" data-ng-class="{'has-error': form.date.$invalid && submitted}">
+                        <input type="date" class="form-control input-lg" id="departure_date" name="departure-date" data-placeholder="Departure Date" data-ng-model="departuredate" required>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <div class="form-group" data-ng-class="{}">
+                                <input type="text" class="form-control input-lg" id="duration" name="duration" placeholder="Duration" data-ng-model="duration" data-ng-model-options="{updateOn: 'blur'}" required>
+                            </div>
+                        </div>
+                        <div class="col-xs-8">
+                            <select class="form-control input-lg" id="duration_type" name="duration-type" data-ng-model="durationtype" >
+                                <option>Days</option>
+                                <option>Weeks</option>
+                                <option>months</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="span4 collapse-group">
+                            <div class="collapse" id="advancedform">
+                                <div class="row">
+                                    <div class="col-xs-4">
+                                        <div class="form-group" data-ng-class="{}">
+                                            <input type="number" class="form-control input-small" id="nbr_people" name="nbrpeople" placeholder="Nbr of people" data-ng-model="nbrpeople" data-ng-model-options="{updateOn: 'blur'}">
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-8">
+                                        <select class="form-control input-small" id="sex" name="sex" data-ng-model="sex" >
+                                            <option>Male</option>
+                                            <option>Female</option>
+                                            <option>Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-4">
+                                        <div class="form-group" data-ng-class="{}">
+                                            <input type="number" class="form-control input-small" id="age" name="age" placeholder="Age" data-ng-model="age" data-ng-model-options="{updateOn: 'blur'}">
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-8">
+                                        <select class="form-control input-small" id="restriction" name="restriction" data-ng-model="restriction" >
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <p><a class="btn" href="#" data-ng-click="toggleAdvanced($event)">Advanced  &raquo;</a>
+                            </p>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Pack my bag</button>
+                </div>
+            </form>
+
+            <div class="alert alert-success message" data-ng-show="showMessage">Well done!</div>
+        </div>
+    </section>
+
+    <footer class="footer fixed-buttom">
+        <div class="container">
+            <p class="text-muted">&copy; Copyright 2015 Smartpackers.</p>
+        </div>
+    </footer>
+    <script type="text/javascript" src="js/main.js"></script>
+</body>
+
+</html>
