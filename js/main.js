@@ -91,3 +91,11 @@ angular.module('app',[])
   };
 
 }]);
+
+//Init the search box
+function initialize_search_box() {
+
+  var input = document.getElementById('destination');
+  var searchBox = new google.maps.places.SearchBox(input);
+}
+google.maps.event.addDomListener(window, 'load', initialize_search_box);
