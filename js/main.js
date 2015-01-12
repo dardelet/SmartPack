@@ -29,12 +29,21 @@ angular.module('app',[])
 	$scope.sex="Male";
 	$scope.restriction=1;
 	$scope.age=26;
+  $scope.advancedShown=false;
 	$scope.toggleAdvanced=function(e){
 			e.preventDefault();
     		var $collapse = $('#advancedform');
-		    console.log($collapse);
 		    $collapse.collapse('toggle');
+        $scope.advancedShown=!$scope.advancedShown;
+        updateButton();
 	}
+  function updateButton(){
+    if($scope.advancedShown){
+      $('#advanced_button').html("Less  &laquo;")
+    }else{
+      $('#advanced_button').html("Advanced  &raquo;")
+    }
+  }
 }])
 .directive('modalDialog', function() {
   return {
@@ -45,7 +54,6 @@ angular.module('app',[])
     replace: true, // Replace with the template below
     transclude: true, // we want to insert custom content inside the directive
     link: function(scope, element, attrs) {
-    	console.log("detected directive");
       scope.dialogStyle = {};
       if (attrs.width)
         scope.dialogStyle.width = attrs.width;
