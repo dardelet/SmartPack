@@ -12,9 +12,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular.min.js"></script>
+    <!-- bootstap angular ui -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.12.0/ui-bootstrap.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
 
+    <!-- bootstap data picker -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.1/css/datepicker.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.1/js/bootstrap-datepicker.min.js" ></script>
 </head>
 
 <body>
@@ -40,7 +44,7 @@
                         </li>
                         <li><a href="#">How it works</a>
                         </li>
-                        <li><a href="#">Pricing</a>
+                        <li><a href="#pricing">Pricing</a>
                         </li>
                         <li><a href="#">About Us</a>
                         </li>
@@ -89,7 +93,7 @@
                         <input type="text" class="form-control input-lg" id="destination" name="destination" placeholder="Destination" data-ng-model="destination" data-ng-model-options="{updateOn: 'blur'}" required>
                     </div>
                     <div class="form-group" data-ng-class="{'has-error': form.date.$invalid && submitted}">
-                        <input type="date" class="form-control input-lg" id="departure_date" name="departure-date" data-placeholder="Departure Date" data-ng-model="departuredate" required>
+                        <input type="text" class="form-control input-lg date" data-provide="datepicker" id="departure_date" name="departure-date" placeholder="Departure Date" data-ng-model="departuredate" required>
                     </div>
                     <div class="row">
                         <div class="col-xs-4">
@@ -148,6 +152,96 @@
             <div class="alert alert-success message" data-ng-show="showMessage">Well done!</div>
         </div>
     </section>
+    <section id="pricing" >
+<div class="container">
+    <div class="row">
+        <div class="span12">
+            <table class="table table-condensed table-hover">
+                <thead>
+                    <tr>
+                        <th> </th>
+                        <th>Fluid 512</th>
+                        <th>Fluid 1024</th>
+                        <th>Fluid 2048</th>
+                        <th>Fluid 4096</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Ram</td>
+                        <td>512MB</td>
+                        <td>1024MB</td>
+                        <td>2048MB</td>
+                        <td>4096MB</td>
+                    </tr>
+                    <tr>
+                        <td>Disk Space</td>
+                        <td>25GB</td>
+                        <td>50GB</td>
+                        <td>100GB</td>
+                        <td>200GB</td>
+                    </tr>
+                    <tr>
+                        <td>CPU Cores</td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>4</td>
+                        <td>6</td>
+                    </tr>
+                    <tr>
+                        <td>Swap</td>
+                        <td>512MB</td>
+                        <td>1024MB</td>
+                        <td>1024MB</td>
+                        <td>2048MB</td>
+                    </tr>
+                    <tr>
+                        <td>Bandwidth</td>
+                        <td>200GB</td>
+                        <td>400GB</td>
+                        <td>800GB</td>
+                        <td>1600GB</td>
+                    </tr>
+                    <tr>
+                        <td> </td>
+                        <td> </td>
+                        <td> </td>
+                        <td> </td>
+                        <td> </td>
+                    </tr>
+                    <tr>
+                        <td>Monthly</td>
+                        <td>$16.95/month</td>
+                        <td>$32.95/month</td>
+                        <td>$64.95/month</td>
+                        <td>$128.95/month</td>
+                    </tr>
+                    <tr>
+                        <td>Quarterly</td>
+                        <td>$16.44/month</td>
+                        <td>$31.96/month</td>
+                        <td>$63.00/month</td>
+                        <td>$125.08/month</td>
+                    </tr>
+                    <tr>
+                        <td>Yearly</td>
+                        <td>$15.26/month</td>
+                        <td>$29.66/month</td>
+                        <td>$58.46/month</td>
+                        <td>$116.06/month</td>
+                    </tr>
+                    <tr>
+                        <td> </td>
+                        <td><a class="btn btn-success" href="#"><i class="icon-shopping-cart icon-white"></i> Order »</a></td>
+                        <td><a class="btn btn-success" href="#"><i class="icon-shopping-cart icon-white"></i> Order »</a></td>
+                        <td><a class="btn btn-success" href="#"><i class="icon-shopping-cart icon-white"></i> Order »</a></td>
+                        <td><a class="btn btn-success" href="#"><i class="icon-shopping-cart icon-white"></i> Order »</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>    </section>
 
     <footer class="footer fixed-buttom">
         <div class="container">
