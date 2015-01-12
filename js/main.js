@@ -1,3 +1,9 @@
+// setting up the data picker
+$('#departure_date').datepicker({
+   format: 'dd/mm/yyyy',
+   startDate: '+1d'
+});
+
 angular.module('app',[])
 .controller('FormCtrl', ['$scope', function($scope) {
   // hide error messages until 'submit' event
