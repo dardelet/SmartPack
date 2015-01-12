@@ -1,93 +1,97 @@
 @-webkit-keyframes shake {
-  0% {
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
-  }
-  
-  12.5% {
-    -webkit-transform: translateX(-6px) rotateY(-5deg);
-    transform: translateX(-6px) rotateY(-5deg);
-  }
-  
-  37.5% {
-    -webkit-transform: translateX(5px) rotateY(4deg);
-    transform: translateX(5px) rotateY(4deg);
-  }
-  
-  62.5% {
-    -webkit-transform: translateX(-3px) rotateY(-2deg);
-    transform: translateX(-3px) rotateY(-2deg);
-  }
-  
-  87.5% {
-    -webkit-transform: translateX(2px) rotateY(1deg);
-    transform: translateX(2px) rotateY(1deg);
-  }
-  
-  100% {
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
-  }
+    0% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+    12.5% {
+        -webkit-transform: translateX(-6px) rotateY(-5deg);
+        transform: translateX(-6px) rotateY(-5deg);
+    }
+    37.5% {
+        -webkit-transform: translateX(5px) rotateY(4deg);
+        transform: translateX(5px) rotateY(4deg);
+    }
+    62.5% {
+        -webkit-transform: translateX(-3px) rotateY(-2deg);
+        transform: translateX(-3px) rotateY(-2deg);
+    }
+    87.5% {
+        -webkit-transform: translateX(2px) rotateY(1deg);
+        transform: translateX(2px) rotateY(1deg);
+    }
+    100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
 }
-
 @keyframes shake {
-  0% {
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
-  }
-  
-  12.5% {
-    -webkit-transform: translateX(-6px) rotateY(-5deg);
-    transform: translateX(-6px) rotateY(-5deg);
-  }
-  
-  37.5% {
-    -webkit-transform: translateX(5px) rotateY(4deg);
-    transform: translateX(5px) rotateY(4deg);
-  }
-  
-  62.5% {
-    -webkit-transform: translateX(-3px) rotateY(-2deg);
-    transform: translateX(-3px) rotateY(-2deg);
-  }
-  
-  87.5% {
-    -webkit-transform: translateX(2px) rotateY(1deg);
-    transform: translateX(2px) rotateY(1deg);
-  }
-  
-  100% {
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
-  }
+    0% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+    12.5% {
+        -webkit-transform: translateX(-6px) rotateY(-5deg);
+        transform: translateX(-6px) rotateY(-5deg);
+    }
+    37.5% {
+        -webkit-transform: translateX(5px) rotateY(4deg);
+        transform: translateX(5px) rotateY(4deg);
+    }
+    62.5% {
+        -webkit-transform: translateX(-3px) rotateY(-2deg);
+        transform: translateX(-3px) rotateY(-2deg);
+    }
+    87.5% {
+        -webkit-transform: translateX(2px) rotateY(1deg);
+        transform: translateX(2px) rotateY(1deg);
+    }
+    100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
 }
-
 .container {
-  /*width: 250px;*/
-  /*margin: 50px auto;*/
-  -webkit-perspective: 600px;
-  -ms-perspective: 600px;
-  perspective: 600px;
+    /*width: 250px;*/
+    /*margin: 50px auto;*/
+    
+    -webkit-perspective: 600px;
+    -ms-perspective: 600px;
+    perspective: 600px;
 }
-
 .box-shadow {
-  -webkit-box-shadow: 0 12px 30px darkgrey;
-  box-shadow: 0 12px 30px darkgrey;
+    -webkit-box-shadow: 0 12px 30px darkgrey;
+    box-shadow: 0 12px 30px darkgrey;
 }
-
 .shake {
-  -webkit-animation: shake 400ms ease-in-out;
-  animation: shake 400ms ease-in-out;
+    -webkit-animation: shake 400ms ease-in-out;
+    animation: shake 400ms ease-in-out;
 }
-
 .message {
-  margin-top: 60px;
+    margin-top: 60px;
 }
 h2 {
-	color: red;
+    color: red;
 }
-
-#main_form{
-  max-width: 600px;
-  margin: auto;
+#main_form {
+    max-width: 600px;
+    margin: auto;
+}
+html {
+    background: url(../img/cover.jpg) no-repeat center center fixed !important;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+section {
+    padding-top: 50px;
+    text-align: center;
+    vertical-align: middle;
+    position: relative;
+}
+#maincontainer {
+    display: table;
+    height: 100%;
+    position: relative;
+    width: 100%;
 }

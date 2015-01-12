@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Smartpack, always with you.</title>
     <link rel="stylesheet" type="text/css" href="style/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="style/main.css">
     <link rel="stylesheet" type="text/css" href="style/modalDialog.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
@@ -23,6 +22,8 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.14/jquery.scrollTo.min.js"></script>
     <!-- jquery one page nav -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-one-page-nav/3.0.0/jquery.nav.min.js"></script>
+    <!-- main custom css -->
+    <link rel="stylesheet" type="text/css" href="style/main.css">
     <!-- sticky footer -->
     <link rel="stylesheet" type="text/css" href="style/sticky_footer.css">
 </head>
@@ -45,7 +46,7 @@
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <ul class="nav navbar-nav">
+                    <ul class="nav navbar-nav" id="top-nav">
                         <li class="active"><a href="#section-1">Home</a>
                         </li>
                         <li><a href="#section-2">How it works</a>
@@ -87,8 +88,8 @@
             </div>
         </div>
     </header>
-    <div class="container">
-        <section class="container no-float" id="section-1">
+    <div class="container wrapper" id="maincontainer">
+        <section class="container row-fluid " id="section-1">
             <div class="text-center " data-width="100%" data-ng-controller="TestFormCtrl">
                 <h3 class="page-header">
               Describe your travel
@@ -152,13 +153,108 @@
                                 </p>
                             </div>
                         </div>
-                            <div class="span2 text-center">
-                                <button type="submit" class="btn-lg btn-primary">Pack my bag</button>
-                            </div>
+                        <div class="span2 text-center">
+                            <button type="submit" class="btn-lg btn-primary">Pack my bag</button>
+                        </div>
                     </div>
                 </form>
 
                 <div class="alert alert-success message" data-ng-show="showMessage">Well done!</div>
+            </div>
+        </section>
+        <section id="section-2" class="row-fluid container">
+            <div class="container">
+                <div class="row">
+                    <div class="span12">
+                        <table class="table table-condensed table-hover">
+                            <thead>
+                                <tr>
+                                    <th> </th>
+                                    <th>Fluid 512</th>
+                                    <th>Fluid 1024</th>
+                                    <th>Fluid 2048</th>
+                                    <th>Fluid 4096</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Ram</td>
+                                    <td>512MB</td>
+                                    <td>1024MB</td>
+                                    <td>2048MB</td>
+                                    <td>4096MB</td>
+                                </tr>
+                                <tr>
+                                    <td>Disk Space</td>
+                                    <td>25GB</td>
+                                    <td>50GB</td>
+                                    <td>100GB</td>
+                                    <td>200GB</td>
+                                </tr>
+                                <tr>
+                                    <td>CPU Cores</td>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>4</td>
+                                    <td>6</td>
+                                </tr>
+                                <tr>
+                                    <td>Swap</td>
+                                    <td>512MB</td>
+                                    <td>1024MB</td>
+                                    <td>1024MB</td>
+                                    <td>2048MB</td>
+                                </tr>
+                                <tr>
+                                    <td>Bandwidth</td>
+                                    <td>200GB</td>
+                                    <td>400GB</td>
+                                    <td>800GB</td>
+                                    <td>1600GB</td>
+                                </tr>
+                                <tr>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                </tr>
+                                <tr>
+                                    <td>Monthly</td>
+                                    <td>$16.95/month</td>
+                                    <td>$32.95/month</td>
+                                    <td>$64.95/month</td>
+                                    <td>$128.95/month</td>
+                                </tr>
+                                <tr>
+                                    <td>Quarterly</td>
+                                    <td>$16.44/month</td>
+                                    <td>$31.96/month</td>
+                                    <td>$63.00/month</td>
+                                    <td>$125.08/month</td>
+                                </tr>
+                                <tr>
+                                    <td>Yearly</td>
+                                    <td>$15.26/month</td>
+                                    <td>$29.66/month</td>
+                                    <td>$58.46/month</td>
+                                    <td>$116.06/month</td>
+                                </tr>
+                                <tr>
+                                    <td> </td>
+                                    <td><a class="btn btn-success" href="#"><i class="icon-shopping-cart icon-white"></i> Order »</a>
+                                    </td>
+                                    <td><a class="btn btn-success" href="#"><i class="icon-shopping-cart icon-white"></i> Order »</a>
+                                    </td>
+                                    <td><a class="btn btn-success" href="#"><i class="icon-shopping-cart icon-white"></i> Order »</a>
+                                    </td>
+                                    <td><a class="btn btn-success" href="#"><i class="icon-shopping-cart icon-white"></i> Order »</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </section>
     </div>
