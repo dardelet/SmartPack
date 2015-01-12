@@ -10,10 +10,23 @@
 	    <div class="panel-body">
 		<div class="row">
 		    <div class="col-md-4" ng-repeat="object in category.objects" >
-			<img src="{{object.imgsrc}}" alt=""></img>
+			<div class=""thumbnail>
+			    <img ng-src="{{object.imgsrc}}" alt="" ng-click="handleObject({{object.name}})" ></img>
+			    <div class="top-right-case">
+				<img alt='cross' src="#" ng-show="{{object.name}}"></img>
+			    </div>
+			</div>
+			<div class="caption">
+			    {{object.name}}
+			</div>
 		    </div>
 		</div>
 	    </div>
 	</div>
     </div>
+</div>
+<div class="text-center">
+    <a href="#" class="btn btn-success" ng-click="addCategory()">
+	<span class="glyphicon glyphicon-plus"></span>
+    </a>
 </div>
