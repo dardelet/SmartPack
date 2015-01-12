@@ -1,7 +1,19 @@
+
+var screen_height=$(window).height();
+$('section').css('min-height',screen_height+'px');
+$(window).on('resize', function(){
+      var win = $(this); //this = window
+      $('section').css('min-height',win.height+'px');
+});
+var language='fr-FR';
 // setting up the data picker
 $('#departure_date').datepicker({
    format: 'dd/mm/yyyy',
-   startDate: '+1d'
+   startDate: '+1d',
+   clearBtn:true,
+   forceParse:true,
+   autoclose:true,
+   language:language
 });
 
 angular.module('app',[])
@@ -24,12 +36,21 @@ angular.module('app',[])
 	$scope.sex="Male";
 	$scope.restriction=1;
 	$scope.age=26;
+  $scope.advancedShown=false;
 	$scope.toggleAdvanced=function(e){
 			e.preventDefault();
     		var $collapse = $('#advancedform');
-		    console.log($collapse);
 		    $collapse.collapse('toggle');
+        $scope.advancedShown=!$scope.advancedShown;
+        updateButton();
 	}
+  function updateButton(){
+    if($scope.advancedShown){
+      $('#advanced_button').html("Less  &laquo;")
+    }else{
+      $('#advanced_button').html("Advanced  &raquo;")
+    }
+  }
 }])
 .directive('modalDialog', function() {
   return {
@@ -40,7 +61,6 @@ angular.module('app',[])
     replace: true, // Replace with the template below
     transclude: true, // we want to insert custom content inside the directive
     link: function(scope, element, attrs) {
-    	console.log("detected directive");
       scope.dialogStyle = {};
       if (attrs.width)
         scope.dialogStyle.width = attrs.width;

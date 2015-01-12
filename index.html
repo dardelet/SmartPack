@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Smartpack, always with you.</title>
     <link rel="stylesheet" type="text/css" href="style/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="style/main.css">
     <link rel="stylesheet" type="text/css" href="style/modalDialog.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
@@ -18,13 +17,21 @@
 
     <!-- bootstap data picker -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.1/css/datepicker.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.1/js/bootstrap-datepicker.min.js" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.1/js/bootstrap-datepicker.min.js"></script>
+    <!-- jquery scroll to plugin -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.14/jquery.scrollTo.min.js"></script>
+    <!-- jquery one page nav -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-one-page-nav/3.0.0/jquery.nav.min.js"></script>
+    <!-- main custom css -->
+    <link rel="stylesheet" type="text/css" href="style/main.css">
+    <!-- sticky footer -->
+    <link rel="stylesheet" type="text/css" href="style/sticky_footer.css">
 </head>
 
 <body>
-    <header>
+    <header class="no-overflow">
         <!-- Beginning of NAV! -->
-        <nav class="navbar navbar-default navbar-fixed-top" data-role="navigation" data-ng-controller="navigationController">
+        <nav class="navbar navbar-default navbar-fixed-top no-overflow" data-role="navigation" data-ng-controller="navigationController">
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
@@ -39,16 +46,16 @@
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Home</a>
+                    <ul class="nav navbar-nav" id="top-nav">
+                        <li class="active"><a href="#section-1">Home</a>
                         </li>
-                        <li><a href="#">How it works</a>
+                        <li><a href="#section-2">How it works</a>
                         </li>
-                        <li><a href="#pricing">Pricing</a>
+                        <li><a href="#section-3">Pricing</a>
                         </li>
-                        <li><a href="#">About Us</a>
+                        <li><a href="#section-4">About Us</a>
                         </li>
-                        <li><a href="#">Contact</a>
+                        <li><a href="#section-5">Contact</a>
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
@@ -81,173 +88,192 @@
             </div>
         </div>
     </header>
-    <section class="container">
-        <div data-width="100%" data-ng-controller="TestFormCtrl">
-            <h3 class="title">
+    <div class="container wrapper" id="maincontainer">
+        <section class="container row-fluid " id="section-1">
+            <div class="text-center " data-width="100%" data-ng-controller="TestFormCtrl">
+                <h3 class="page-header">
               Describe your travel
             </h3>
 
-            <form name="form" class="form-horizontal" data-autocomplete="off" data-novalidate data-shake-that data-submitted="submitted" data-submit="submit()">
-                <div class="">
-                    <div class="form-group" data-ng-class="{}">
-                        <input type="text" class="form-control input-lg" id="destination" name="destination" placeholder="Destination" data-ng-model="destination" data-ng-model-options="{updateOn: 'blur'}" required>
-                    </div>
-                    <div class="form-group" data-ng-class="{'has-error': form.date.$invalid && submitted}">
-                        <input type="text" class="form-control input-lg date" data-provide="datepicker" id="departure_date" name="departure-date" placeholder="Departure Date" data-ng-model="departuredate" required>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-4">
-                            <div class="form-group" data-ng-class="{}">
-                                <input type="text" class="form-control input-lg" id="duration" name="duration" placeholder="Duration" data-ng-model="duration" data-ng-model-options="{updateOn: 'blur'}" required>
-                            </div>
+                <form id="main_form" name="form" class="form-horizontal jumbotron span5" data-autocomplete="off" data-novalidate data-shake-that data-submitted="submitted" data-submit="submit()">
+                    <div class="container">
+                        <div class="form-group row" data-ng-class="{}">
+                            <input type="text" class="form-control col-xs-2 col-md-1 input-lg" id="destination" name="destination" placeholder="Destination" data-ng-model="destination" data-ng-model-options="{updateOn: 'blur'}" required>
                         </div>
-                        <div class="col-xs-8">
-                            <select class="form-control input-lg" id="duration_type" name="duration-type" data-ng-model="durationtype" >
-                                <option>Days</option>
-                                <option>Weeks</option>
-                                <option>months</option>
-                            </select>
+                        <div class="form-group" data-ng-class="{'has-error': form.date.$invalid && submitted}">
+                            <input type="text" class="form-control input-lg date" data-provide="datepicker" id="departure_date" name="departure-date" placeholder="Departure Date" data-ng-model="departuredate" required>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="span4 collapse-group">
-                            <div class="collapse" id="advancedform">
-                                <div class="row">
-                                    <div class="col-xs-4">
-                                        <div class="form-group" data-ng-class="{}">
-                                            <input type="number" class="form-control input-small" id="nbr_people" name="nbrpeople" placeholder="Nbr of people" data-ng-model="nbrpeople" data-ng-model-options="{updateOn: 'blur'}">
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-8">
-                                        <select class="form-control input-small" id="sex" name="sex" data-ng-model="sex" >
-                                            <option>Male</option>
-                                            <option>Female</option>
-                                            <option>Other</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xs-4">
-                                        <div class="form-group" data-ng-class="{}">
-                                            <input type="number" class="form-control input-small" id="age" name="age" placeholder="Age" data-ng-model="age" data-ng-model-options="{updateOn: 'blur'}">
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-8">
-                                        <select class="form-control input-small" id="restriction" name="restriction" data-ng-model="restriction" >
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                        </select>
-                                    </div>
+                        <div class="row">
+                            <div class="col-xs-4 col-md-4">
+                                <div class="form-group" data-ng-class="{}">
+                                    <input type="number" min="0" step="1" class="form-control input-lg" id="duration" name="duration" placeholder="Duration" data-ng-model="duration" data-ng-model-options="{updateOn: 'blur'}" required>
                                 </div>
                             </div>
-                            <p><a class="btn" href="#" data-ng-click="toggleAdvanced($event)">Advanced  &raquo;</a>
-                            </p>
+                            <div class="col-xs-6 col-xs-6 center">
+                                <select class="form-control input-lg" id="duration_type" name="duration-type" data-ng-model="durationtype">
+                                    <option>Days</option>
+                                    <option>Weeks</option>
+                                    <option>months</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="span4 collapse-group">
+                                <div class="collapse" id="advancedform">
+                                    <div class="row">
+                                        <div class="col-xs-4">
+                                            <div class="form-group" data-ng-class="{}">
+                                                <input type="number" min="0" step="1" class="form-control input-small" id="nbr_people" name="nbrpeople" placeholder="Nbr of people" data-ng-model="nbrpeople" data-ng-model-options="{updateOn: 'blur'}">
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-8">
+                                            <select class="form-control input-small" id="sex" name="sex" data-ng-model="sex">
+                                                <option>Male</option>
+                                                <option>Female</option>
+                                                <option>Other</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-2 col-md-4">
+                                            <div class="form-group" data-ng-class="{}">
+                                                <input type="number" class="form-control input-small" id="age" name="age" placeholder="Age" data-ng-model="age" min="0" step="1" data-ng-model-options="{updateOn: 'blur'}">
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-6 col-md-8">
+                                            <select class="form-control input-small" id="restriction" name="restriction" data-ng-model="restriction">
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p><a class="btn" href="#" id="advanced_button" data-ng-click="toggleAdvanced($event)">Advanced  &raquo;</a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="span2 text-center">
+                            <button type="submit" class="btn-lg btn-primary">Pack my bag</button>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block">Pack my bag</button>
+                </form>
+
+                <div class="alert alert-success message" data-ng-show="showMessage">Well done!</div>
+            </div>
+        </section>
+        <section id="section-2" class="row-fluid container">
+            <div class="container">
+                <div class="row">
+                    <div class="span12">
+                        <table class="table table-condensed table-hover">
+                            <thead>
+                                <tr>
+                                    <th> </th>
+                                    <th>Fluid 512</th>
+                                    <th>Fluid 1024</th>
+                                    <th>Fluid 2048</th>
+                                    <th>Fluid 4096</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Ram</td>
+                                    <td>512MB</td>
+                                    <td>1024MB</td>
+                                    <td>2048MB</td>
+                                    <td>4096MB</td>
+                                </tr>
+                                <tr>
+                                    <td>Disk Space</td>
+                                    <td>25GB</td>
+                                    <td>50GB</td>
+                                    <td>100GB</td>
+                                    <td>200GB</td>
+                                </tr>
+                                <tr>
+                                    <td>CPU Cores</td>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>4</td>
+                                    <td>6</td>
+                                </tr>
+                                <tr>
+                                    <td>Swap</td>
+                                    <td>512MB</td>
+                                    <td>1024MB</td>
+                                    <td>1024MB</td>
+                                    <td>2048MB</td>
+                                </tr>
+                                <tr>
+                                    <td>Bandwidth</td>
+                                    <td>200GB</td>
+                                    <td>400GB</td>
+                                    <td>800GB</td>
+                                    <td>1600GB</td>
+                                </tr>
+                                <tr>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                </tr>
+                                <tr>
+                                    <td>Monthly</td>
+                                    <td>$16.95/month</td>
+                                    <td>$32.95/month</td>
+                                    <td>$64.95/month</td>
+                                    <td>$128.95/month</td>
+                                </tr>
+                                <tr>
+                                    <td>Quarterly</td>
+                                    <td>$16.44/month</td>
+                                    <td>$31.96/month</td>
+                                    <td>$63.00/month</td>
+                                    <td>$125.08/month</td>
+                                </tr>
+                                <tr>
+                                    <td>Yearly</td>
+                                    <td>$15.26/month</td>
+                                    <td>$29.66/month</td>
+                                    <td>$58.46/month</td>
+                                    <td>$116.06/month</td>
+                                </tr>
+                                <tr>
+                                    <td> </td>
+                                    <td><a class="btn btn-success" href="#"><i class="icon-shopping-cart icon-white"></i> Order »</a>
+                                    </td>
+                                    <td><a class="btn btn-success" href="#"><i class="icon-shopping-cart icon-white"></i> Order »</a>
+                                    </td>
+                                    <td><a class="btn btn-success" href="#"><i class="icon-shopping-cart icon-white"></i> Order »</a>
+                                    </td>
+                                    <td><a class="btn btn-success" href="#"><i class="icon-shopping-cart icon-white"></i> Order »</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-            </form>
-
-            <div class="alert alert-success message" data-ng-show="showMessage">Well done!</div>
-        </div>
-    </section>
-    <section id="pricing" >
-<div class="container">
-    <div class="row">
-        <div class="span12">
-            <table class="table table-condensed table-hover">
-                <thead>
-                    <tr>
-                        <th> </th>
-                        <th>Fluid 512</th>
-                        <th>Fluid 1024</th>
-                        <th>Fluid 2048</th>
-                        <th>Fluid 4096</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Ram</td>
-                        <td>512MB</td>
-                        <td>1024MB</td>
-                        <td>2048MB</td>
-                        <td>4096MB</td>
-                    </tr>
-                    <tr>
-                        <td>Disk Space</td>
-                        <td>25GB</td>
-                        <td>50GB</td>
-                        <td>100GB</td>
-                        <td>200GB</td>
-                    </tr>
-                    <tr>
-                        <td>CPU Cores</td>
-                        <td>1</td>
-                        <td>2</td>
-                        <td>4</td>
-                        <td>6</td>
-                    </tr>
-                    <tr>
-                        <td>Swap</td>
-                        <td>512MB</td>
-                        <td>1024MB</td>
-                        <td>1024MB</td>
-                        <td>2048MB</td>
-                    </tr>
-                    <tr>
-                        <td>Bandwidth</td>
-                        <td>200GB</td>
-                        <td>400GB</td>
-                        <td>800GB</td>
-                        <td>1600GB</td>
-                    </tr>
-                    <tr>
-                        <td> </td>
-                        <td> </td>
-                        <td> </td>
-                        <td> </td>
-                        <td> </td>
-                    </tr>
-                    <tr>
-                        <td>Monthly</td>
-                        <td>$16.95/month</td>
-                        <td>$32.95/month</td>
-                        <td>$64.95/month</td>
-                        <td>$128.95/month</td>
-                    </tr>
-                    <tr>
-                        <td>Quarterly</td>
-                        <td>$16.44/month</td>
-                        <td>$31.96/month</td>
-                        <td>$63.00/month</td>
-                        <td>$125.08/month</td>
-                    </tr>
-                    <tr>
-                        <td>Yearly</td>
-                        <td>$15.26/month</td>
-                        <td>$29.66/month</td>
-                        <td>$58.46/month</td>
-                        <td>$116.06/month</td>
-                    </tr>
-                    <tr>
-                        <td> </td>
-                        <td><a class="btn btn-success" href="#"><i class="icon-shopping-cart icon-white"></i> Order »</a></td>
-                        <td><a class="btn btn-success" href="#"><i class="icon-shopping-cart icon-white"></i> Order »</a></td>
-                        <td><a class="btn btn-success" href="#"><i class="icon-shopping-cart icon-white"></i> Order »</a></td>
-                        <td><a class="btn btn-success" href="#"><i class="icon-shopping-cart icon-white"></i> Order »</a></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            </div>
+        </section>
     </div>
-</div>    </section>
-
     <footer class="footer fixed-buttom">
         <div class="container">
             <p class="text-muted">&copy; Copyright 2015 Smartpackers.</p>
         </div>
     </footer>
+    <!-- enabling one page navigation -->
+    <script type="text/javascript">
+    // <![CDATA[
+    $('#top-nav').onePageNav({
+        currentClass: 'active',
+        changeHash: true,
+        scrollSpeed: 1200
+    });
+    // ]]>
+    </script>
+    <!-- main script -->
     <script type="text/javascript" src="js/main.js"></script>
 </body>
 
