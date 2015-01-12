@@ -63,8 +63,8 @@
 }
 
 .container {
-  width: 250px;
-  margin: 50px auto;
+  /*width: 250px;*/
+  /*margin: 50px auto;*/
   -webkit-perspective: 600px;
   -ms-perspective: 600px;
   perspective: 600px;
@@ -85,4 +85,9 @@
 }
 h2 {
 	color: red;
+}
+
+#main_form{
+  max-width: 600px;
+  margin: auto;
 }

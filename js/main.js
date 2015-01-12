@@ -1,7 +1,12 @@
+var language='fr-FR';
 // setting up the data picker
 $('#departure_date').datepicker({
    format: 'dd/mm/yyyy',
-   startDate: '+1d'
+   startDate: '+1d',
+   clearBtn:true,
+   forceParse:true,
+   autoclose:true,
+   language:language
 });
 
 angular.module('app',[])
