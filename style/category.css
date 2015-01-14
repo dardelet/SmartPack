@@ -27,6 +27,15 @@
     right:2px;
     bottom:2px;
 }
-.mycategory{
-    min-height : 800px;
+
+.panel-title{
+    position:relative;
+}
+
+.gears{
+    height:2em;
+    position:absolute;
+    right:0;
+    top:0;
+    margin-top:-0.5em;
 }
