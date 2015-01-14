@@ -22,3 +22,9 @@
     margin-top:-50%;
 }
 
+.bottom-right-case{
+    position:absolute;
+    right:2px;
+    bottom:2px;
+}
+
