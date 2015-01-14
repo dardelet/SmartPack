@@ -1,5 +1,10 @@
 .thumbnail{
     position:relative;
+    height:120px;
+}
+
+.thumbnail img{
+    height:100%;
 }
 
 .top-right-case{
@@ -16,3 +21,4 @@
     margin-left:-50%;
     margin-top:-50%;
 }
+

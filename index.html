@@ -27,6 +27,8 @@
     <link rel="stylesheet" type="text/css" href="style/main.css">
     <!-- sticky footer -->
     <link rel="stylesheet" type="text/css" href="style/sticky_footer.css">
+    <!-- Category css -->
+    <link rel="stylesheet" type="text/css" href="style/category.css">
 </head>
 
 <body>
@@ -274,7 +276,7 @@
             </div>
         </section>
         <section id="section-4" class="row-fluid container" ng-controller="categoryListController">
-            <div class="" ng-repeat="category in categories | orderBy:id">
+            <div class="" ng-repeat="category in categories | orderBy:predicate:reverse">
 	        <div class="panel panel-default">
 		   <div class="panel-heading" role="tab" id="heading{{category.id}}">
 	    	       <h4 class="panel-title" data-toggle="collapse" data-target="#collapse{{category.id}}" aria-expanded="false" aria-controls="collapse{{category.id}}">
@@ -286,9 +288,9 @@
 	    	   	<div class="row">
 	    	   	    <div class="col-md-4" ng-repeat="object in category.objects" >
 	    	   		<div class="thumbnail">
-	    	   		    <img ng-src="{{object.imgsrc}}" alt="" ng-click="handleObject('{{object.name}}')" ></img>
+	    	   		    <img ng-src="{{object.imgsrc}}" alt="" ng-click="handleObject(object.name)" ></img>
 	    	   		    <div class="top-right-case">
-	    	   			<img alt='cross' src="http://www.clipartbest.com/cliparts/eTM/kRa/eTMkRaAAc.png" ng-show="{{object.name}}"></img>
+	    	   			<img alt='cross' ng-src="http://www.clipartbest.com/cliparts/eTM/kRa/eTMkRaAAc.png" ng-show="{{object.name}}"></img>
 	    	   		    </div>
 	    	   		</div>
 	    	   		<div class="caption text center">
@@ -323,12 +325,12 @@
     <!-- application features -->
     <!-- Angular main features -->
     <script type="text/javascript" src="js/app.js"></script>
-    <!-- --------------------------- Angular Directives ----------------------------- -->
+    <!-- ---------------------------- -Angular Directives--------------------- -->
     <!-- shake that directive -->
     <script type="text/javascript" src="js/shakeThatDirective.js"></script>
     <!-- modal dialog directive -->
     <script type="text/javascript" src="js/modalDialogDirective.js"></script>
-    <!-- ------------------------------ Controllers ----------------------- -->
+    <!-- -------------------------------- Controllers ------------------------- -->
     <!-- login controller -->
     <script type="text/javascript" src="js/loginController.js"></script>
     <!-- navigation controller -->

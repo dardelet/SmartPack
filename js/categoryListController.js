@@ -40,20 +40,21 @@ app.controller('categoryListController',['$scope',function($scope) {
 		}
 	    ]
 	},
+        {
 	    id:3,
 	    objects:[
 		{
-		    name:"Beach towel"
+		    name:"Towel",
 		    quantity:1,
 		    imgsrc:"https://www.aneesi.co.uk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/b/e/beach_atlantis_01_1.jpg"
 		},
 		{
-		    name:"Beach sandal"
+		    name:"Sandal",
 		    quantity:1,
 		    imgsrc:"http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=58448706"
 		},
 		{
-		    name:"Beach ball"
+		    name:"Ball",
 		    quantity:1,
 		    imgsrc:"https://www.beachballs.com/images/AD_36_Rainbow.png"
 		}
@@ -61,12 +62,15 @@ app.controller('categoryListController',['$scope',function($scope) {
 	}
     ];
 
+    $scope.reverse = false;
+    $scope.predicate = 'id';
+
     $scope.addCategory = function () {
 	var category = new Object();
 	category.id = $scope.categories.length + 1;
 	category.objects = [];
 	$scope.categories.push(category);
-    }
+    };
 
     $scope.handleObject = function (name) {
 	if (typeof $scope[name] !== "undefined"){
@@ -74,6 +78,6 @@ app.controller('categoryListController',['$scope',function($scope) {
 	} else {
 	    $scope[name]=true;
 	}
-    }
+    };
 
 }]);
