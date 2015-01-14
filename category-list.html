@@ -74,8 +74,8 @@
     	        <div class="panel-body">
     	            <div class="row">
     	                <div class="col-md-4" ng-repeat="object in category.objects" >
-    	    	            <div class="thumbnail">
-    	    	   	        <img ng-src="{{object.imgsrc}}" alt="" ng-click="handleObject(object.name)" ></img>
+    	    	            <div class="thumbnail" ng-click="handleObject(object.name)"  >
+    	    	   	        <img ng-src="{{object.imgsrc}}" alt="" ></img>
     	    	   	        <div class="top-right-case">
     	    	   	            <img alt='cross' ng-src="http://www.clipartbest.com/cliparts/eTM/kRa/eTMkRaAAc.png" ng-show="{{object.name}}"></img>
     	    	   	        </div>
