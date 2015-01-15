@@ -46,10 +46,10 @@
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <ul class="nav navbar-nav" id="top-nav">
-                        <li class="active"><a href="#section-1">Home</a>
+                    <ul class="nav navbar-nav" id="top-nav" >
+                        <li class="active"><a href="#section-0">Home</a>
                         </li>
-                        <li ng-repeat="category in categories | orderBy:predicate:reverse"><a ng-href="#section-{{category.id}}">Category {{category.id}}</a>
+                        <li ng-repeat="category in categories | orderBy:predicate:reverse" my-repeat-directive><a ng-href="#section-{{category.id}}">Category {{category.id}}</a>
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
@@ -64,7 +64,7 @@
 
     <section id="section-{{category.id}}" class="row-fluid container" ng-repeat="category in categories | orderBy:predicate:reverse">
          
-        <div class="panel panel-default">
+        <div class="panel panel-default mycategory">
             <div class="panel-heading" role="tab" id="heading{{category.id}}">
                 <h4 class="panel-title" data-toggle="collapse" data-target="#collapse{{category.id}}" aria-expanded="false" aria-controls="collapse{{category.id}}">
     	    	   	    Category {{category.id}}
@@ -103,13 +103,14 @@
         </div>
     </footer>
 
-    </script>
 
 
 
     <!-- application features -->
     <!-- Angular main features -->
     <script type="text/javascript" src="js/app.js"></script>
+    <!-- enabling one page navigation -->
+    <script type="text/javascript" src="js/onePageSiteNavigation.js"></script>
 
     <!-- -------------------------------- Controllers ------------------------- -->
     <!-- navigation controller -->
@@ -117,8 +118,10 @@
     <!-- categories controller -->
     <script type="text/javascript" src="js/categoryListController.js"></script>
 
-    <!-- enabling one page navigation -->
-    <script type="text/javascript" src="js/onePageSiteNavigation.js"></script>
+
+    <!-- myRepeat Directive -->
+    <script type="text/javascript" src="js/myRepeatDirective.js"></script> 
+
 </body>
 
 </html>

@@ -77,7 +77,7 @@ h2 {
     margin: auto;
 }
 html {
-    background: url(../img/cover.jpg) no-repeat center center fixed !important;
+//    background: url(../img/cover.jpg) no-repeat center center fixed !important;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;

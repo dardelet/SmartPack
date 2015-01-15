@@ -27,4 +27,6 @@
     right:2px;
     bottom:2px;
 }
-
+.mycategory{
+    min-height : 800px;
+}
