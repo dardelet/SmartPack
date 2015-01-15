@@ -132,6 +132,15 @@ app.controller('categoryListController',['$scope',function($scope) {
     $scope.search = new Object();
     $scope.search.id = 1;
 
+    $scope.startPopUp = function (id){
+    	$scope.search.id = id;
+    	setTimeout(function(){
+			$(".fancybox").trigger('click');
+			$("#popup h4").click();		
+		}, 100);
+    	
+    };
+
     $scope.setCurrentCategory = function (number){
     	$scope.search.id = number;
     };
