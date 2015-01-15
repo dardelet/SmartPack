@@ -44,7 +44,7 @@
     <link rel="stylesheet" href="js/fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" type="text/css" media="screen" />
 </head>
 
-<body ng-controller="categoryListController">
+<body data-ng-controller="categoryListController">
     <header class="no-overflow">
         <!-- Beginning of NAV! -->
         <nav class="navbar navbar-default navbar-fixed-top no-overflow" data-role="navigation">
@@ -63,16 +63,14 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <ul class="nav navbar-nav" id="top-nav" >
-                        <li ng-repeat="category in categories | orderBy:predicate:reverse" my-repeat-directive><a ng-href="#section-{{category.id}}">Category {{category.id}}</a>
+                        <li data-ng-repeat="category in categories | orderBy:predicate:reverse" data-my-repeat-directive><a data-ng-href="#section-{{category.id}}">Category {{category.id}}</a>
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li data-ng-show="!logged"><a href="" data-ng-click="toggleModal()">Login</a>
                         </li>
                         <li data-ng-show="logged">
-                            <p class="navbar-text">
-                                <h5> Welcome {{name}} </h5>
-                            </p>
+                            <h5 class="navbar-text"> Welcome {{name}} </h5>
                         </li>
                         <li data-ng-show="logged"><a href="" class="navbar-link" data-ng-click="disconnect()">Disconnect</a>&nbsp;</li>
                     </ul>
@@ -105,10 +103,10 @@
 
     <a class = "fancybox" href="#popup" style="display:none"></a>
 
-    <section id="popup" class="row-fluid container" ng-repeat="category in categories | filter:search" style="display:none">
+    <section id="popup" class="row-fluid container" data-ng-repeat="category in categories | filter:search" style="display:none">
          
         <div class="panel panel-default mycategory">
-            <div class="panel-heading" role="tab" id="headingpopup">
+            <div class="panel-heading" id="headingpopup">
                 <h4 class="panel-title" >
                         Category {{category.id}}
                 </h4>
@@ -116,29 +114,29 @@
             <div id="collapsepopup" >
                 <div class="panel-body">  
                     <div class="row">
-                        <select class = "form-control input-lg" style = "text-indent:47%" ng-model = "objectToAdd" ng-options = "object as object.name for object in objectsToChoose">
+                        <select class = "form-control input-lg" style = "text-indent:47%" data-ng-model = "objectToAdd" data-ng-options = "object as object.name for object in objectsToChoose">
                         </select>
-                        <button class = "btn btn-success btn-mrg" ng-click = "addObject(objectToAdd)">Add</button>
-                        <button class = "btn btn-danger btn-mrg" ng-click = "deleteObject()">Delete</button>
+                        <button class = "btn btn-success btn-mrg" data-ng-click = "addObject(objectToAdd)">Add</button>
+                        <button class = "btn btn-danger btn-mrg" data-ng-click = "deleteObject()">Delete</button>
                     </div>
                     <div class="row">
-                        <div class="col-md-4" ng-repeat="object in category.objects" >
-                            <div class="thumbnail" ng-click="handleObject(object.name+2)"  >
-                                <img ng-src="{{object.imgsrc}}" alt="" ></img> 
+                        <div class="col-md-4" data-ng-repeat="object in category.objects" >
+                            <div class="thumbnail" data-ng-click="handleObject(object.name+2)"  >
+                                <img src="#" data-ng-src="{{object.imgsrc}}" alt="" > 
                                 <div class="top-right-case">
-                                    <img alt='cross' ng-src="http://icons.iconarchive.com/icons/hopstarter/rounded-square/256/Button-Delete-icon.png" ng-show="{{object.name}}2"></img>
+                                    <img src="#" alt='cross' data-ng-src="http://icons.iconarchive.com/icons/hopstarter/rounded-square/256/Button-Delete-icon.png" data-ng-show="{{object.name}}2">
                                 </div>
                             </div>
                             <div class="center">
                                 <div class="input-group">
                                     <span class="input-group-btn">
-                                        <button type="button" class="btn btn-danger btn-number"  data-type="minus" data-field="quant" ng-click="substractQuantity(object.name)">
+                                        <button type="button" class="btn btn-danger btn-number"  data-type="minus" data-field="quant" data-ng-click="substractQuantity(object.name)">
                                             <span class="glyphicon glyphicon-minus"></span>
                                         </button>
                                     </span>
-                                    <input ng-model="object.quantity" type="text" name="quant" class="form-control input-number" min="1" max="100">
+                                    <input data-ng-model="object.quantity" type="number" name="quant" class="form-control input-number" min="1" max="100">
                                     <span class="input-group-btn">
-                                        <button type="button" class="btn btn-success btn-number" data-type="plus" data-field="quant" ng-click="addQuantity(object.name)">
+                                        <button type="button" class="btn btn-success btn-number" data-type="plus" data-field="quant" data-ng-click="addQuantity(object.name)">
                                             <span class="glyphicon glyphicon-plus"></span>
                                         </button>
                                     </span>
@@ -152,29 +150,29 @@
                 </div>
             </div>
         </div>  
-        <div class='btn btn-default btn-success' ng-click='validate()'>
+        <div class='btn btn-default btn-success' data-ng-click='validate()'>
             OK
         </div>
     </section>
 
 
-    <section id="section-{{category.id}}" class="row-fluid container" ng-repeat="category in categories | orderBy:predicate:reverse">
+    <section id="section-{{category.id}}" class="row-fluid container" data-ng-repeat="category in categories | orderBy:predicate:reverse">
          
         <div class="panel panel-default mycategory">
-            <div class="panel-heading" role="tab" id="heading{{category.id}}">
+            <div class="panel-heading" id="heading{{category.id}}">
                 <h4 class="panel-title" data-toggle="collapse" data-target="#collapse{{category.id}}" aria-expanded="false" aria-controls="collapse{{category.id}}">
     	    	   	    Category {{category.id}}
-			    <img class="gears" src="http://www.e-recup.fr/design/icones/cgu.png" alt="" ng-click="startPopUp(category.id); $event.stopPropagation();" >
+			    <img class="gears" src="http://www.e-recup.fr/design/icones/cgu.png" alt="" data-ng-click="startPopUp(category.id); $event.stopPropagation();" >
                 </h4>
     	    </div>
     	    <div id="collapse{{category.id}}" class="panel-collapse collapse">
     	        <div class="panel-body">
     	            <div class="row">
-    	                <div class="col-md-4" ng-repeat="object in category.objects" >
-    	    	            <div class="thumbnail" ng-click="handleObject(object.name)"  >
-    	    	   	        <img ng-src="{{object.imgsrc}}" alt="" ></img>
+    	                <div class="col-md-4" data-ng-repeat="object in category.objects" >
+    	    	            <div class="thumbnail" data-ng-click="handleObject(object.name)"  >
+    	    	   	        <img src="#" data-ng-src="{{object.imgsrc}}" alt="" >
     	    	   	        <div class="top-right-case">
-    	    	   	            <img alt='cross' ng-src="http://www.clipartbest.com/cliparts/eTM/kRa/eTMkRaAAc.png" ng-show="{{object.name}}"></img>
+    	    	   	            <img src="#" alt='cross' data-ng-src="http://www.clipartbest.com/cliparts/eTM/kRa/eTMkRaAAc.png" data-ng-show="{{object.name}}">
     	    	   	        </div>
                                 <div class="bottom-right-case">
                                     x{{object.quantity}}
@@ -190,7 +188,7 @@
     	</div>	
     </section>
     <div class="text-center">
-        <span class="btn btn-success" ng-click="addCategory()">
+        <span class="btn btn-success" data-ng-click="addCategory()">
             <span class="glyphicon glyphicon-plus"></span>
     	</span>
     </div>
