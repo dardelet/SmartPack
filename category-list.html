@@ -26,6 +26,15 @@
     <link rel="stylesheet" type="text/css" href="style/sticky_footer.css">
     <!-- Category css -->
     <link rel="stylesheet" type="text/css" href="style/category.css">
+    <!-- Fancybox -->
+    <script type="text/javascript" src="js/fancybox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
+    <script type="text/javascript" src="js/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+    <script type="text/javascript" src="js/fancybox/source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+    <script type="text/javascript" src="js/fancybox/source/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+    <script type="text/javascript" src="js/fancybox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+    <link rel="stylesheet" href="js/fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+    <link rel="stylesheet" href="js/fancybox/source/helpers/jquery.fancybox-buttons.css?v=1.0.5" type="text/css" media="screen" />
+    <link rel="stylesheet" href="js/fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" type="text/css" media="screen" />
 </head>
 
 <body ng-controller="categoryListController">
@@ -48,7 +57,7 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <ul class="nav navbar-nav" id="top-nav" >
                         <li class="active"><a href="#section-0">Home</a>
-                        </li>
+                        </li>   
                         <li ng-repeat="category in categories | orderBy:predicate:reverse" my-repeat-directive><a ng-href="#section-{{category.id}}">Category {{category.id}}</a>
                         </li>
                     </ul>
@@ -60,6 +69,61 @@
             </div>
         </nav>
     </header>
+
+    <a class = "fancybox" href="#popup">LOL</a>
+
+    <section id="popup" class="row-fluid container" ng-repeat="category in categories | filter:search" style="display:none">
+         
+        <div class="panel panel-default mycategory">
+            <div class="panel-heading" role="tab" id="headingpopup">
+                <h4 class="panel-title" data-toggle="collapse" data-target="#collapsepopup" aria-expanded="false" aria-controls="collapsepopup">
+                        Category {{category.id}}
+                </h4>
+            </div>
+            <div id="collapsepopup" class="panel-collapse collapse">
+                <div class="panel-body">
+                    
+                    <div class="row">
+                        <select class = "form-control input-lg" style = "text-indent:47%" ng-model = "objectToAdd" ng-options = "object as object.name for object in objectsToChoose">
+                        </select>
+                        <button class = "btn btn-primary btn-mrg" ng-click = "addObject(objectToAdd)">Add</button>
+                        <button class = "btn btn-danger btn-mrg" ng-click = "deleteObject()">Delete</button>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4" ng-repeat="object in category.objects" >
+                            <div class="thumbnail" ng-click="handleObject(object.name+2)"  >
+                                <img ng-src="{{object.imgsrc}}" alt="" ></img> 
+
+                                <div class="top-right-case">
+                                    <img alt='cross' ng-src="http://www.psdgraphics.com/file/red-delete-button.jpg" ng-show="{{object.name}}2"></img>
+                                </div>
+                        </div>
+                        <div class="center">
+                            <div class="input-group">
+                                  <span class="input-group-btn">
+                                      <button type="button" class="btn btn-danger btn-number"  data-type="minus" data-field="quant" ng-click="substractQuantity(object.name)">
+                                        <span class="glyphicon glyphicon-minus"></span>
+                                      </button>
+                                  </span>
+                                  <input ng-model="object.quantity" type="text" name="quant" class="form-control input-number" min="1" max="100">
+                                  <span class="input-group-btn">
+                                      <button type="button" class="btn btn-success btn-number" data-type="plus" data-field="quant" ng-click="addQuantity(object.name)">
+                                          <span class="glyphicon glyphicon-plus"></span>
+                                      </button>
+                                  </span>
+                            </div>
+                        </div>
+                        <div class="caption text center">
+                            {{object.name}}
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </section>
 
 
     <section id="section-{{category.id}}" class="row-fluid container" ng-repeat="category in categories | orderBy:predicate:reverse">
@@ -109,6 +173,7 @@
     <!-- application features -->
     <!-- Angular main features -->
     <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/popUpCategory.js"></script>
     <!-- enabling one page navigation -->
     <script type="text/javascript" src="js/onePageSiteNavigation.js"></script>
 

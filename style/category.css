@@ -27,6 +27,21 @@
     right:2px;
     bottom:2px;
 }
-.mycategory{
-    min-height : 800px;
+
+.center{
+  width: 150px;
+  margin: 10px auto;
+  
+}
+
+.input-group input{
+    text-align: center;
+}
+
+.btn-mrg{
+    margin : 1em 0;
+}
+
+.thumbnail{
+    margin-bottom: 0;
 }
