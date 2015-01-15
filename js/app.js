@@ -8,10 +8,16 @@ app.controller('mainController', ['$scope','$ev', function($scope,$ev) {
     };
     $scope.disconnect = function(){
     	$scope.logged=false;
+        if(window.localStorage){
+            localStorage.logged = false;
+        }
     	$ev.emit('logged:false', false);
     };
     $ev.on('logged:true', function (value) {
             $scope.logged = true;
-	        $scope.modalShown = !$scope.modalShown;
+            if(window.localStorage){
+                localStorage.logged = true;
+            }
+	    scope.modalShown = !$scope.modalShown;
     });
 }])
