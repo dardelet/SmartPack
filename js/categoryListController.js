@@ -199,4 +199,8 @@ app.controller('categoryListController',['$scope',function($scope) {
     	}	
     };
 
+    $scope.validate = function() {
+        $('.fancybox-close').click();
+    };
+
 }]);
