@@ -136,7 +136,6 @@ app.controller('categoryListController',['$scope',function($scope) {
     	$scope.search.id = id;
     	setTimeout(function(){
 			$(".fancybox").trigger('click');
-			$("#popup h4").click();		
 		}, 100);
     	
     };
