@@ -151,29 +151,37 @@
                                     <div class="row">
                                         <div class="col-xs-4">
                                             <div class="form-group" data-ng-class="{}">
-                                                <input type="number" min="0" step="1" class="form-control input-small" id="nbr_people" name="nbrpeople" placeholder="Nbr of people" data-ng-model="nbrpeople" data-ng-model-options="{updateOn: 'blur'}">
+                                                Number of people in your trip
+                                                <input type="number" min="0" step="1" class="form-control input-small" id="nbr_people" name="nbrpeople" placeholder="Nbr of people" data-ng-model="nbrpeople">
                                             </div>
-                                        </div>
-                                        <div class="col-xs-8">
-                                            <select class="form-control input-small" id="sex" name="sex" data-ng-model="sex">
-                                                <option>Male</option>
-                                                <option>Female</option>
-                                                <option>Other</option>
-                                            </select>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-xs-2 col-md-4">
-                                            <div class="form-group" data-ng-class="{}">
-                                                <input type="number" class="form-control input-small" id="age" name="age" placeholder="Age" data-ng-model="age" min="0" step="1" data-ng-model-options="{updateOn: 'blur'}">
+                                    <div ng-repeat="i in getNumber() track by $index">
+                                        <div class="row">
+                                            <div class="">
+                                                <span>Person number {{$index+1}}</span>
+                                                <select class="form-control input-small" id="sex" name="sex" data-ng-model="sex">
+                                                    <option>Male</option>
+                                                    <option>Female</option>
+                                                    <option>Other</option>
+                                                </select>
                                             </div>
                                         </div>
-                                        <div class="col-xs-6 col-md-8">
-                                            <select class="form-control input-small" id="restriction" name="restriction" data-ng-model="restriction">
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                            </select>
+                                        <div class="row">
+                                            <div class="col-xs-2 col-md-4">
+                                                <div class="form-group" data-ng-class="{}">
+                                                    Age
+                                                    <input type="number" class="form-control input-small" id="age" name="age" placeholder="Age" data-ng-model="age" min="0" step="1" data-ng-model-options="{updateOn: 'blur'}">
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-6 col-md-8">
+                                                Number of Luggage
+                                                <select class="form-control input-small" id="restriction" name="restriction" data-ng-model="restriction">
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

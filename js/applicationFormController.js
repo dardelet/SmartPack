@@ -29,4 +29,9 @@ app.controller('TestFormCtrl', ['$scope','$timeout', function($scope,$timeout) {
             window.location.href = "category-list.html";
         },400);
     };
+
+    $scope.getNumber = function() {
+        //alert($scope.nbrpeople);
+        return new Array($scope.nbrpeople);   
+    }
 }]);
