@@ -1,4 +1,4 @@
-app.controller('FormCtrl', ['$scope', '$ev' , function($scope, $ev) {
+app.controller('FormCtrl', ['$scope', '$ev','$timeout' , function($scope, $ev,$timeout) {
     // hide error messages until 'submit' event
     $scope.submitted = false;
     // hide success message
@@ -7,7 +7,9 @@ app.controller('FormCtrl', ['$scope', '$ev' , function($scope, $ev) {
     $scope.submit = function() {
         // show success message
         $scope.showMessage = true;
-        $ev.emit('logged:true', true);
+        $timeout(function () {        
+            $ev.emit('logged:true', true);
+        },200);
     };
     $ev.on('logged:false', function (value) {
 	    $scope.submitted = false;

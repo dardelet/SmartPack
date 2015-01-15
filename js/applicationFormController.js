@@ -1,10 +1,13 @@
-app.controller('TestFormCtrl', ['$scope', function($scope) {
+app.controller('TestFormCtrl', ['$scope','$timeout', function($scope,$timeout) {
     $scope.durationtype = "Days";
     $scope.nbrpeople = 1;
     $scope.sex = "Male";
     $scope.restriction = 1;
     $scope.age = 26;
     $scope.advancedShown = false;
+    $scope.submitted = false;
+    $scope.showMessage = false;
+
     $scope.toggleAdvanced = function(e) {
         e.preventDefault();
         var $collapse = $('#advancedform');
@@ -20,4 +23,10 @@ app.controller('TestFormCtrl', ['$scope', function($scope) {
             $('#advanced_button').html("Advanced  &raquo;")
         }
     }
+    $scope.submit = function() {
+        $scope.showMessage = true;
+        $timeout(function () {        
+            window.location.href = "category-list.html";
+        },400);
+    };
 }]);
