@@ -15,7 +15,7 @@
 
     <!-- bootstap angular ui -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.12.0/ui-bootstrap.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp%7Clibraries=places"></script>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?libraries=places&sensor=false"></script>
 
     <!-- bootstap data picker -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.1/css/datepicker.min.css">
@@ -214,7 +214,11 @@
                 </div>
                 <div class="col-md-8">
                     <div class="vid">
-                        <iframe width="560" height="315" src="http://www.youtube.com/embed/jI-kpVh6e1U" allowfullscreen=""></iframe>
+                        <video controls="controls" id="playlist" width="370" height="240" controls="">
+                            <source id="mp4" src="https://ia801403.us.archive.org/13/items/AboutBan1935/AboutBan1935_512kb.mp4">
+                            <source id="ogg" src="https://ia601403.us.archive.org/13/items/AboutBan1935/AboutBan1935.ogv">
+                            Plz update your browser
+                        </video>
                     </div>
                 </div>
             </div>
