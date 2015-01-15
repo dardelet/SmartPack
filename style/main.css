@@ -103,3 +103,7 @@ section {
 .vid{
     float: left;
 }
+.ng-modal-dialog{
+    max-width:600px;
+    max-height:300px;
+}
