@@ -114,48 +114,47 @@
                 </h4>
             </div>
             <div id="collapsepopup" >
-                <div class="panel-body">
-                    
+                <div class="panel-body">  
                     <div class="row">
                         <select class = "form-control input-lg" style = "text-indent:47%" ng-model = "objectToAdd" ng-options = "object as object.name for object in objectsToChoose">
                         </select>
                         <button class = "btn btn-success btn-mrg" ng-click = "addObject(objectToAdd)">Add</button>
                         <button class = "btn btn-danger btn-mrg" ng-click = "deleteObject()">Delete</button>
-
                     </div>
-
                     <div class="row">
                         <div class="col-md-4" ng-repeat="object in category.objects" >
                             <div class="thumbnail" ng-click="handleObject(object.name+2)"  >
                                 <img ng-src="{{object.imgsrc}}" alt="" ></img> 
-
                                 <div class="top-right-case">
                                     <img alt='cross' ng-src="http://icons.iconarchive.com/icons/hopstarter/rounded-square/256/Button-Delete-icon.png" ng-show="{{object.name}}2"></img>
                                 </div>
-                        </div>
-                        <div class="center">
-                            <div class="input-group">
-                                  <span class="input-group-btn">
-                                      <button type="button" class="btn btn-danger btn-number"  data-type="minus" data-field="quant" ng-click="substractQuantity(object.name)">
-                                        <span class="glyphicon glyphicon-minus"></span>
-                                      </button>
-                                  </span>
-                                  <input ng-model="object.quantity" type="text" name="quant" class="form-control input-number" min="1" max="100">
-                                  <span class="input-group-btn">
-                                      <button type="button" class="btn btn-success btn-number" data-type="plus" data-field="quant" ng-click="addQuantity(object.name)">
-                                          <span class="glyphicon glyphicon-plus"></span>
-                                      </button>
-                                  </span>
+                            </div>
+                            <div class="center">
+                                <div class="input-group">
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-danger btn-number"  data-type="minus" data-field="quant" ng-click="substractQuantity(object.name)">
+                                            <span class="glyphicon glyphicon-minus"></span>
+                                        </button>
+                                    </span>
+                                    <input ng-model="object.quantity" type="text" name="quant" class="form-control input-number" min="1" max="100">
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-success btn-number" data-type="plus" data-field="quant" ng-click="addQuantity(object.name)">
+                                            <span class="glyphicon glyphicon-plus"></span>
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="caption text center">
+                                {{object.name}}
                             </div>
                         </div>
-                        <div class="caption text center">
-                            {{object.name}}
-                        </div>
-                    </div>
                     </div>
                 </div>
             </div>
         </div>  
+        <div class='btn btn-default btn-success' ng-click='validate()'>
+            OK
+        </div>
     </section>
 
 
