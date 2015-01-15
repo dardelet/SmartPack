@@ -2,7 +2,7 @@ var app = angular.module('app', ['EventEmitterService','ngAnimate']);
 app.controller('mainController', ['$scope','$ev', function($scope,$ev) {
     $scope.modalShown = false;
     $scope.logged=false;
-    $scope.name="Radhwane";
+    $scope.name="User";
     $scope.toggleModal = function() {
         $scope.modalShown = !$scope.modalShown;
     };
