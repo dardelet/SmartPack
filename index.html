@@ -33,7 +33,8 @@
     <link rel="stylesheet" type="text/css" href="style/category.css">
     <!-- awsome font -->
     <link rel="stylesheet" type="text/css" href="style/awsome-font.css">
-    <link rel="stylesheet" type="text/css" href="style/style.css">
+    <link rel="stylesheet" type="text/css" href="style/navbarStyle.css">
+    <link rel="stylesheet" type="text/css" href="style/contact_team.css">
     <link rel="stylesheet" type="text/css" href="style/bootstrap-social.css">
 
     <link rel="stylesheet" type="text/css" href="style/modalDialog.css">
@@ -137,7 +138,7 @@
                                     <input type="number" min="0" step="1" class="form-control input-lg" id="duration" name="duration" placeholder="Duration" data-ng-model="duration" data-ng-model-options="{updateOn: 'blur'}" required>
                                 </div>
                             </div>
-                            <div class="col-xs-6 col-xs-6 center">
+                            <div class="col-xs-6 col-xs-6 pull-right">
                                 <select class="form-control input-lg" id="duration_type" name="duration-type" data-ng-model="durationtype">
                                     <option>Days</option>
                                     <option>Weeks</option>
@@ -145,13 +146,17 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row-fluid">
                             <div class="span4 collapse-group">
                                 <div class="collapse" id="advancedform">
                                     <div class="row">
-                                        <div class="col-xs-4">
+                                        <div class="col-xs-5">
+                                            <div class="form-group center" data-ng-class="{}">
+                                                <label class="muted-text"> Number of people</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-3 pull-right">
                                             <div class="form-group" data-ng-class="{}">
-                                                Number of people in your trip
                                                 <input type="number" min="0" step="1" class="form-control input-small" id="nbr_people" name="nbrpeople" placeholder="Nbr of people" data-ng-model="nbrpeople">
                                             </div>
                                         </div>
@@ -159,7 +164,7 @@
                                     <div data-ng-repeat="i in getNumber() track by $index">
                                         <div class="row">
                                             <div class="">
-                                                <span>Person number {{$index+1}}</span>
+                                                <span class=""> Person number {{$index+1}}</span>
                                                 <select class="form-control input-small" id="sex" name="sex" data-ng-model="sex">
                                                     <option>Male</option>
                                                     <option>Female</option>

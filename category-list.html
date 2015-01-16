@@ -33,6 +33,13 @@
     <link rel="stylesheet" type="text/css" href="style/sticky_footer.css">
     <!-- Category css -->
     <link rel="stylesheet" type="text/css" href="style/category.css">
+    <!-- awsome font -->
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="style/awsome-font.css">
+    <link rel="stylesheet" type="text/css" href="style/navbarStyle.css">
     <!-- Fancybox -->
     <script type="text/javascript" src="js/fancybox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
     <script type="text/javascript" src="js/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
@@ -57,8 +64,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand img-responsive" href="index.html"><img style="height: 35px" alt="logo" src="img/logo.jpg" />
-                    </a>
+                    <a class="navbar-brand img-responsive" href="index.html">SmartPack</a>
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -100,7 +106,7 @@
             </div>
         </div>
     </header>
-
+    <div id="categories_container">
     <a class = "fancybox" href="#popup" style="display:none"></a>
 
     <section id="popup" class="row-fluid container" data-ng-repeat="category in categories | filter:search" style="display:none">
@@ -187,6 +193,7 @@
     	    </div>
     	</div>	
     </section>
+    </div>
     <div class="text-center">
         <span class="btn btn-success" data-ng-click="addCategory()">
             <span class="glyphicon glyphicon-plus"></span>
